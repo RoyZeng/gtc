@@ -1,0 +1,101 @@
+<include file="Public:header" />
+<div class="subnav">
+    <div class="content_menu ib_a blue line_x">
+        <a href="{:U('Config/index')}" class=""><em>基本设置</em></a>
+        <span>|</span>
+        <a href="{:U('Config/url')}"><em>UR静态化</em></a>
+        <span>|</span>
+        <a href="{:U('Config/page')}" class="on"><em>SEO设置</em></a>
+    </div>
+</div>
+<!--SEO设置-->
+<div class="pad_lr_10">
+    <div class="col_tab">
+
+        <ul class="tip_list clearfix ml20">
+            <li>网站标题 <span class="highlight">{WEB_SITE_TITLE}</span></li>
+            <li>站点设置里面的Title <span class="highlight">{WEB_SITE_TITLE}</span></li>
+            <li>站点设置里面的Keywords <span class="highlight">{WEB_SITE_KEYWORD}</span></li>
+            <li>站点设置里面的Description <span class="highlight">{WEB_SITE_DESCRIPTION}</span></li>
+        </ul>
+
+        <ul class="J_tabs tab_but cu_li mt10">
+            <li class="current">作品列表页面</li>
+            <li>作品详细页面</li>
+            <li>银行网点列表</li>
+        </ul>
+    
+        <form id="info_form" action="{:u('Config/page')}" method="post">
+        <div class="J_panes">
+            <div class="content_list pad_10">
+                <table width="100%" class="table_form">
+
+                    <tr>
+                        <th>Title</th>
+                        <td><textarea name="seo_config[collections][title]" cols="80" rows="2">{$seo_config.collections.title}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td><textarea name="seo_config[collections][keywords]" cols="80" rows="2">{$seo_config.collections.keywords}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea name="seo_config[collections][description]" cols="80" rows="3">{$seo_config.collections.description}</textarea></td>
+                    </tr>
+                </table>
+            </div>
+ 
+            
+            <div class="content_list pad_10" style="display:none;">
+                <table width="100%" class="table_form">
+                    
+                    <tr>
+                        <th>Title</th>
+                        <td><textarea name="seo_config[details][title]" cols="80" rows="2">{$seo_config.details.title}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td><textarea name="seo_config[details][keywords]" cols="80" rows="2">{$seo_config.details.keywords}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea name="seo_config[details][description]" cols="80" rows="3">{$seo_config.details.description}</textarea></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="content_list pad_10" style="display:none">
+                <table width="100%" class="table_form">
+
+                    <tr>
+                        <th>Title</th>
+                        <td><textarea name="seo_config[branch][title]" cols="80" rows="2">{$seo_config.branch.title}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Keywords</th>
+                        <td><textarea name="seo_config[branch][keywords]" cols="80" rows="2">{$seo_config.branch.keywords}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><textarea name="seo_config[branch][description]" cols="80" rows="3">{$seo_config.branch.description}</textarea></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        
+        <div class="mt10">
+            <input type="hidden" name="menuid"  value="{$menuid}"/>
+            <input type="submit" class="btn btn_submit" name="do" value="{:L('submit')}"/>
+        </div>
+        </form>
+    </div>
+</div>
+<include file="Public:footer" />
+<script>
+$(function(){
+    $('ul.J_tabs').tabs('div.J_panes > div');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<include file="Public:header" />
+<div class="subnav">
+    <div class="content_menu ib_a blue line_x">
+        <a href="{:U('Config/index')}" class=""><em>基本设置</em></a>
+        <span>|</span>
+        <a href="{:U('Config/url')}"><em>UR静态化</em></a>
+        <span>|</span>
+        <a href="{:U('Config/page')}" class=""><em>SEO设置</em></a>
+        <span>|</span>
+        <a href="{:U('Config/mail')}" class="on"><em>邮件设置</em></a>
+    </div>
+</div>
+<!--邮件服务器设置-->
+<div class="common-form">
+	<form id="info_form" action="{:u('Config/edit')}" method="post">
+	
+    <table width="100%" class="table_form contentWrap">
+        <tr>
+        	<th width="150">{:L('smtp_host')} :</th>
+        	<td><input type="text" name="setting[mail_server][host]" class="input-text" size="30" value="{:C('dahai_mail_server.host')}"></td>
+    	</tr>
+        <tr>
+        	<th>{:L('smtp_port')} :</th>
+        	<td><input type="text" name="setting[mail_server][port]" class="input-text" value="{:C('dahai_mail_server.port')}"></td>
+    	</tr>
+        <tr>
+            <th>{:L('smtp_name')} :</th>
+            <td><input type="text" name="setting[mail_server][name]" class="input-text" size="30" value="{:C('dahai_mail_server.name')}"></td>
+        </tr>
+        <tr>
+        	<th>{:L('smtp_from')} :</th>
+        	<td><input type="text" name="setting[mail_server][from]" class="input-text" size="30" value="{:C('dahai_mail_server.from')}"></td>
+    	</tr>
+        <tr>
+        	<th>{:L('smtp_auth_username')} :</th>
+        	<td>
+            	<input type="text" name="setting[mail_server][auth_username]" class="input-text" size="30" value="{:C('dahai_mail_server.auth_username')}">
+            </td>
+    	</tr>
+        <tr>
+        	<th>{:L('smtp_auth_password')} :</th>
+        	<td><input type="password" name="setting[mail_server][auth_password]" class="input-text" size="30" value="{:C('dahai_mail_server.auth_password')}"></td>
+    	</tr>
+        
+        <tr>
+        	<th></th>
+        	<td><input type="hidden" name="menuid"  value="{$menuid}"/><input type="submit" class="btn btn_submit" value="{:L('submit')}"/></td>
+    	</tr>
+	</table>
+	</form>
+</div>
+<include file="Public:footer" />
+
+</body>
+</html>

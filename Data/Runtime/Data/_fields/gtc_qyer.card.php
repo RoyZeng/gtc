@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'id', 1 => 'card', 2 => 'status', 3 => 'create_time', 4 => 'reg_time', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11)', 'card' => 'bigint(20)', 'status' => 'int(1)', 'create_time' => 'int(11)', 'reg_time' => 'int(11)', ), );?>

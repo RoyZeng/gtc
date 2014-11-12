@@ -1,0 +1,58 @@
+<include file="Public:mobile_header" />
+<script>
+window.shareData = {
+    "imgUrl": "__UPLOAD__/{$info.path}",
+    "timeLineLink": location.href,
+    "tTitle": "你购时尚吗",
+    "tContent": "快来看我的纽约街头最fashion搭配！现在用美国运通电子旅行支票在纽约麦迪逊大街shopping还能获得专属优惠呢"
+};
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            
+    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+        WeixinJSBridge.invoke('sendAppMessage', {
+            "img_url": window.shareData.imgUrl,
+            "link": window.shareData.timeLineLink,
+            "desc": window.shareData.tContent,
+            "title": window.shareData.tTitle
+        }, onShareComplete);
+    });
+    
+    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+        WeixinJSBridge.invoke('shareTimeline', {
+            "img_url": window.shareData.imgUrl,
+            "img_width": "640",
+            "img_height": "640",
+            "link": window.shareData.timeLineLink,
+            "desc": window.shareData.tContent,
+            "title": window.shareData.tContent
+        }, onShareComplete);
+    });
+}, false);
+function onShareComplete(){}
+</script>
+<div class="crumbs">
+	<div class="container"><a href="{:U('/')}"><i class="icons icon-home"></i></a>作品详情<span>Collection Details</span></div>
+</div>
+
+<div class="container">
+	<div class="details-box fn-clear">
+		<h3><em>{$info.nick}</em>的<br/>纽约<em>{$info.style}</em>搭配<h3>
+		<img src="__UPLOAD__/{$info.path}">
+
+		<div class="products-box">
+			<h2>已选商品<span>Choosed Products</span></h2>
+			<volist name="img" id="val">
+			<dl class="fn-clear">
+				<dt>{$val.brand}</dt>
+				<volist name="val['img']" id="pic">
+				<dd><img src="/{$pic}"></dd>
+				</volist>
+			</dl>
+			</volist>
+		</div>
+		
+	</div>
+</div>
+
+
+<include file="Public:mobile_footer" />

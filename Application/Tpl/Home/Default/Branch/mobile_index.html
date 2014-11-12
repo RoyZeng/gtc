@@ -1,0 +1,47 @@
+<include file="Public:mobile_header" />
+
+<div class="crumbs">
+	<div class="container"><a href="{:U('/')}"><i class="icons icon-home"></i></a>银行网点<span>Bank Branch</span></div>
+</div>
+<div class="container">
+	<ul class="bank-list fn-clear">
+		<li class="bank-icon bank_1">
+			<a href="javascript:void(0);" class="active" data-bank="icbc">工行</a>
+		</li>
+		<li class="bank-icon bank_2">
+			<a href="javascript:void(0);" class="" data-bank="ceb">光大银行</a>
+		</li>
+		<li class="bank-icon bank_3">
+			<a href="javascript:void(0);" class="" data-bank="bcm">交通银行</a>
+		</li>
+	</ul>
+	<input type="hidden" id="bank" value="ICBC">
+	<div class="city-select">
+		
+		<dl>
+			<dt><input type="text" readOnly id="city_val" value="北京" /><i></i></dt>
+			<dd>
+				<a href="javascript:void(0);" data-city="北京">北京</a>
+				<a href="javascript:void(0);" data-city="成都">成都</a>
+				<a href="javascript:void(0);" data-city="上海">上海</a>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<div class="branch-list">
+	<div class="container">
+		<div class="branch-content" style="display:block;"></div>
+	</div>
+</div>
+
+
+<script src="__STATIC__/scripts/icheck.js"></script>
+<script src="__STATIC__/scripts/main.js"></script>
+<script>
+;(function ($) {
+	AE.brandList.init();
+	AE.brandList.getData('icbc','北京');
+})(jQuery);
+</script>
+<include file="Public:mobile_footer" />

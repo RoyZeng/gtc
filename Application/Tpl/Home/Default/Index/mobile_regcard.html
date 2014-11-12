@@ -1,0 +1,33 @@
+<include file="Public:mobile_header" />
+
+<div class="crumbs">
+	<div class="container"><a href="{:U('/')}"><i class="icons icon-home"></i></a>注册新卡<span>New Card Registration</span></div>
+</div>
+<div class="container regCard">
+	<div id="regBox">
+		<h2>为了您能顺利领取穷游专属$10美金优惠</h2>
+		<h3>请在下方填写您的美国运通电子旅行支票后6位卡号</h3>
+		<img src="__STATIC__/images/mobile_reg.jpg">
+		<div class="input-area">
+			<input type="text" id="card_num" />
+			<button class="btn" id="send_card">提 交</button>
+		</div>
+
+		<h2 class="tip">*如果您还未办理美国运通电子旅行支票</h2>
+		<h3 class="tip">请先到线下网点进行购买，再次回到此页面填写卡号，同时领取穷游专属优惠</h3>
+		<a class="offline-btn" href="{:U('branch/index')}">查看线下网点位置</a>
+	</div>
+</div>
+
+
+
+<script src="__STATIC__/scripts/jquery.cookie.js"></script>
+<script src="__STATIC__/scripts/main.js"></script>
+<script>
+$(function(){ 
+AE.regCard.mobile_sendData();
+	
+});
+</script>
+
+<include file="Public:mobile_footer" />

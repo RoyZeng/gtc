@@ -1,0 +1,65 @@
+<include file="Public:header" />
+<div class="subnav">
+    <div class="content_menu ib_a blue line_x">
+        <a href="{:U('Config/index')}" class="on"><em>基本设置</em></a>
+        <span>|</span>
+        <a href="{:U('Config/url')}"><em>UR静态化</em></a>
+        <span>|</span>
+        <a href="{:U('Config/page')}" class=""><em>SEO设置</em></a>
+    </div>
+</div>
+<!--网站设置-->
+<div class="pad_lr_10">
+	<form id="info_form" action="{:u('Config/edit')}" method="post">
+	<table width="100%" class="table_form">
+        <tr>
+            <th width="150">{:L('site_name')} :</th>
+            <td><input type="text" name="setting[WEB_SITE_TITLE]" class="input-text" size="50" value="{:C('WEB_SITE_TITLE')}"></td>
+        </tr>
+        
+        <tr>
+            <th>{:L('seo_keys')} :</th>
+            <td><input type="text" name="setting[WEB_SITE_KEYWORD]" class="input-text" size="50" value="{:C('WEB_SITE_KEYWORD')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('seo_desc')} :</th>
+            <td><textarea rows="3" cols="50" name="setting[WEB_SITE_DESCRIPTION]">{:C('WEB_SITE_DESCRIPTION')}</textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('site_icp')} :</th>
+            <td><input type="text" name="setting[WEB_SITE_ICP]" class="input-text" size="50" value="{:C('WEB_SITE_ICP')}"></td>
+        </tr>
+        
+    	<tr>
+        	<th>{:L('site_status')} :</th>
+        	<td>
+            	<label><input type="radio" class="J_change_status" <if condition="C('WEB_SITE_CLOSE') eq '1'">checked="checked"</if> value="1" name="setting[WEB_SITE_CLOSE]"> {:L('open')}</label> &nbsp;&nbsp;
+                <label><input type="radio" class="J_change_status" <if condition="C('WEB_SITE_CLOSE') eq '0'">checked="checked"</if> value="0" name="setting[WEB_SITE_CLOSE]"> {:L('close')}</label>
+            </td>
+    	</tr>
+        <tr id="J_closed_reason" <if condition="C('WEB_SITE_CLOSE') eq 1">class="hidden"</if>>
+        	<th>{:L('closed_reason')} :</th>
+        	<td><textarea rows="4" cols="50" name="setting[WEB_SITE_CLOSE_REASON]" id="closed_reason">{:C('WEB_SITE_CLOSE_REASON')}</textarea></td>
+    	</tr>
+        
+        <tr>
+        	<th></th>
+        	<td><input type="submit" class="btn btn_submit" value="{:L('submit')}"/></td>
+    	</tr>
+	</table>
+	</form>
+</div>
+<include file="Public:footer" />
+<script>
+$(function(){
+    $('.J_change_status').live('click', function(){
+        if($(this).val() == '0'){
+            $('#J_closed_reason').fadeIn();
+        }else{
+            $('#J_closed_reason').fadeOut();
+        }
+    });
+});
+</script>
+</body>
+</html>

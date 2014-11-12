@@ -1,0 +1,13 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title><?php echo ($page_seo["title"]); ?></title><link rel="stylesheet" type="text/css" href="__CSS__/common.css" /><link rel="stylesheet" type="text/css" href="__CSS__/mobile_layout.css" /><script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script><script type="text/javascript">			var AECONGIF = {
+				"root"   	: "http://<?php echo ($home_url); ?>", //站点URL
+				"public" 	: "__PUBLIC__", //项目公共目录地址
+				"statics" 	: "__STATIC__", //静态文件目录
+				"upload" 	: "__UPLOAD__",	//上传目录
+			}
+			var mobile = true;
+	</script></head><body><header><div class="container"><a href="<?php echo U('/index');?>" class="logo"><img src="__IMG__/logo.png" /></a><a href="https://www.americanexpress.com/china/personal/travel/prepaid_travel_card/"><img src="__IMG__/top_card.png" class="right_card" /></a><nav><ul class="fn-clear"><!--<li><a href="<?php echo U('collections/index');?>">查看作品</a></li>--><li><a href="javascript:void(0);" data-scorll="game_intro">活动介绍</a></li><li><a href="javascript:void(0);" data-scorll="pro_intro">产品简介</a></li><li><a href="javascript:void(0);" data-scorll="download">下载锦囊</a></li><li><a href="<?php echo U('branch/index');?>">办理网点</a></li><li><a href="<?php echo U('index/mobile_regCard');?>">新卡注册</a></li></ul></nav></div></header><div class="crumbs"><div class="container"><a href="<?php echo U('/');?>"><i class="icons icon-home"></i></a>注册新卡<span>New Card Registration</span></div></div><div class="container regCard"><div id="regBox"><h2>为了您能顺利领取穷游专属$10美金优惠</h2><h3>请在下方填写您的美国运通电子旅行支票后6位卡号</h3><img src="__STATIC__/images/mobile_reg.jpg"><div class="input-area"><input type="text" id="card_num" /><button class="btn" id="send_card">提 交</button></div><h2 class="tip">*如果您还未办理美国运通电子旅行支票</h2><h3 class="tip">请先到线下网点进行购买，再次回到此页面填写卡号，同时领取穷游专属优惠</h3><a class="offline-btn" href="<?php echo U('branch/index');?>">查看线下网点位置</a></div></div><script src="__STATIC__/scripts/jquery.cookie.js"></script><script src="__STATIC__/scripts/main.js"></script><script>
+$(function(){ 
+AE.regCard.mobile_sendData();
+	
+});
+</script></script></body></html>

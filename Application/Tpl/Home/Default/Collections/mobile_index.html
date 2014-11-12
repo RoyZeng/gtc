@@ -1,0 +1,18 @@
+<include file="Public:mobile_header" />
+<div class="crumbs">
+	<div class="container"><a href="{:U('/')}"><i class="icons icon-home"></i></a>作品列表<span>Collections List</span></div>
+</div>
+<div class="container collectionsList">
+	<volist name="list" id="val">
+	<dl>
+		<dd class="collections_name"><em>{$val.nick}</em>的<br/>纽约<em>{$val.style}</em>搭配</dd>
+		<dt><a href="{:U('collections/details',array('id'=>$val['id']))}"><img src="__UPLOAD__/{$val.path}" width="235" /></a></dt>
+		<dd class="fn-text-overflow"><a href="{:U('collections/details',array('id'=>$val['id']))}">{$val.nick}的纽约{$val.style}搭配</a></dd>
+	</dl>
+	</volist>
+
+	<div class="page">{$page}</div>
+</div>
+
+<script src="__STATIC__/scripts/main.js"></script>
+<include file="Public:mobile_footer" />

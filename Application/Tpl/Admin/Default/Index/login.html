@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="__ADMIN__styles/login.css" rel="stylesheet"/>
+	<title>管理中心</title>
+</head>
+
+<body scroll="no" class="login_body">
+  <div class="login-container">
+      <div class="header"></div>
+      <form action="{:U('index/login')}" method="post" id="myform">
+          
+          <div class="legend">统一登录中心</div>
+          <hr />
+          <hr class="decoration" />
+          <div class="hint">
+             <span class="error" style="display:none">该账户不存在，请更换账户或联系管理员</span>
+          </div>
+          <fieldset>
+              <div class="input-prepend">
+                  <span class="add-on">
+                      <i class="icon-user"></i>
+                  </span>
+                  <input type="text" id="username" name="username" placeholder="{$Think.lang.login_username}" class="input"/>
+              </div>
+              <div class="input-prepend">
+                  <span class="add-on">
+                      <i class="icon-key"></i>
+                  </span>
+                  <input type="password" id="password" name="password" placeholder="{$Think.lang.login_password}" class="input"/>
+              </div>
+              <div class="input-prepend">
+                  <span class="add-on">
+                      <i class="icon-key"></i>
+                  </span>
+                  <input type="text" id="verify_code" name="verify_code" placeholder="{$Think.lang.verify_code}" class="input input_verify_code"/><img title="{$Think.lang.refresh_verify_code}" class="verify_img" src="{:U('index/verify_code', array('t'=>time()))}" style="margin:5px 0 0 10px"/>
+              </div>
+              <button type="submit" class="btn-login" onFocus="blur()" name="do">登录</button>
+          </fieldset>
+      </form>
+  </div>
+  
+<script language="javascript" type="text/javascript" src="__ADMIN__js/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="__ADMIN__js/jquery/plugins/jquery.placeholder.js"></script>
+<script>
+$(function(){
+    $(function(){$('input').placeholder();});
+    if(self != top){
+        top.location = self.location;
+    }
+    
+    $(".verify_img").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr("src","{:U('index/verify_code')}&"+timenow)
+    });
+});
+</script>
+</body>
+</html>
